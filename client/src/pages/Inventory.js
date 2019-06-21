@@ -39,7 +39,7 @@ class Inventory extends Component {
         title: this.state.title,
         author: this.state.author,
         synopsis: this.state.synopsis
-      }).then(console.log(res.data))
+      })
         .then(res => this.loadItems())
         .catch(err => console.log(err));
     }
