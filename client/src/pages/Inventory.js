@@ -7,13 +7,13 @@ import NavSide from "../components/NavSide";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
 // import Thumbnail from "../components/Thumbnail";
-import { Col, Container } from "../components/Grid";
+import { Col } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
 
-class Books extends Component {
+class Inventory extends Component {
   state = {
-    books: [],
+    items: [],
     title: "",
     author: "",
     synopsis: "",
@@ -32,26 +32,36 @@ class Books extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
+    console.log("Submitting form!");
+    
     if (this.state.title && this.state.author) {
-      API.saveBook({
+      API.saveItem({
         title: this.state.title,
         author: this.state.author,
         synopsis: this.state.synopsis
-      })
-        .then(res => this.loadBooks())
+      }).then(console.log(res.data))
+        .then(res => this.loadItems())
         .catch(err => console.log(err));
     }
   };
 
-  deleteBook = id => {
-    API.deleteBook(id)
-      .then(res => this.loadBooks())
+  loadItems = () => {
+    API.getItems()
+      .then(res =>
+        this.setState({ items: res.data, title: "", author: "", synopsis: "" })
+      )
+      .catch(err => console.log(err));
+  };
+
+  deleteItem = id => {
+    API.deleteItem(id)
+      .then(res => this.loadItems())
       .catch(err => console.log(err));
   };
 
   render() {
     return (
-      <Container fluid>
+      // <Container fluid>
         <Col size="md-12 sm-12">
           <div className="row">
             <Col size="md-2">
@@ -109,7 +119,7 @@ class Books extends Component {
             </Col>
           </div>
         </Col>
-      </Container >
+      // </Container >
     );
   }
 
@@ -189,7 +199,7 @@ class Books extends Component {
   // }
 }
 
-export default Books;
+export default Inventory;
 
 
 //  <a rel="noreferrer noopener" target="_blank" href={href}>
