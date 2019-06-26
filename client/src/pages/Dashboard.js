@@ -66,13 +66,15 @@ class Dashboard extends Component {
               <div className="row">
                 <Col size="md-12 sm-12">
                   <Summary>
-                  <button
+                  {/* <Jumbotron> */}
+                  {/* <button
                     // disabled={!this.state.search}
                     onClick={this.handleFormSubmit}
                   >Manual API Connect
-                  </button>
+                  </button> */}
                     <h1>Summary</h1>
                     <div>Pie and Bar graphs</div>
+                  {/* </Jumbotron> */}
                   </Summary>
 
                 </Col>
