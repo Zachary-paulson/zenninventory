@@ -15,6 +15,7 @@ render() {
 
 
 
+
         <div className="col-6 summary">    
         <IntroSummary>
         </IntroSummary> 
