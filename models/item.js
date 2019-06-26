@@ -7,7 +7,7 @@ const itemSchema = new Schema({
   imageurl: { type: String, required: true }, // added
   link: { type: String, required: true }, // added
   synopsis: String,
-  date: { type: Date, default: Date.now },
+  // date: { type: Date, default: Date.now },
   saved: { type: Boolean, default: false } // added
 });
 

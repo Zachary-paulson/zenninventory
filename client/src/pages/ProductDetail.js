@@ -1,53 +1,34 @@
 import React, { Component } from "react";
-import SaveBtn from "../components/SaveBtn";
-import ViewBtn from "../components/ViewBtn";
+// import SaveBtn from "../components/SaveBtn";
+// import ViewBtn from "../components/ViewBtn";
 import Jumbotron from "../components/Jumbotron";
+import DisplayContainer from "../components/DisplayContainer";
 // import Wrapper from "../components/Wrapper";
 import NavSide from "../components/NavSide";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
 // import Thumbnail from "../components/Thumbnail";
-import { Col, Row } from "../components/Grid";
-import { List, ListItem } from "../components/List";
-import { Input, FormBtn } from "../components/Form";
+import { Col } from "../components/Grid";
+import { List } from "../components/List";
+import ProductCard from "../components/ProductCard";
+import { FormBtn } from "../components/Form";
 // import "./style.css";
 // import axios from "axios";
 import jsonp from 'jsonp'
 
-class Inventory extends Component {
+class ProductDetail extends Component {
   state = {
     search: "",
     results: [],
     listings: [],
-    books: [],
-    id: "",
-    disabled: false
+    // books: [],
+    // id: "",
+    // disabled: false
   };
 
-
   componentDidMount() {
-
-    this.returnEtsyListings();
+    // this.returnEtsyListings();
   }
-
-  returnEtsyListings () {
-    let term = "SilverandGoldGallery"; // need to put in env
-    let api_key = "xv3l1bj1g4cwg1ihrprejjce"; // need to put in env
-    jsonp("https://openapi.etsy.com/v2/shops/" + term + "/listings/active.js?callback=getData&limit=10&includes=Images:1&api_key=" + api_key, null, (err, data) => {
-      console.log("Making Etsy API call");
-        if (err) {
-          console.error(err.message);
-        }
-        else {
-          console.log("data is", data);
-          this.setState({
-            results: data.results
-          })
-          // console.log("state is", this.state)
-        }
-      });
-  }
-
 
   // loadBooks = () => {
   //   API.getBooks()
@@ -81,23 +62,84 @@ class Inventory extends Component {
     this.setState({ search: event.target.value });
   };
 
-  handleFormSubmit = event => {
+  handleEtsySearch = event => {
     event.preventDefault();
-    console.log("Form submitted!");
-    // if (this.state.search) {
-    // API.searchItems(this.state.search)
-    API.searchItems()
-    // .then(res => {
-    // console.log(res.data);
-    // this.setState({ results: res.data.items })
-    // this.loadBooks()
-    // console.log(this.state.results);
-    // console.log(this.state.results[0].id);
-    // })
-    // .catch(err => console.log(err))
-    // })
-    // }
+    console.log("Submitting Etsy API call!");
+    this.returnEtsyListings()
   };
+
+  // handleEtsySave = event => {
+  //   event.preventDefault();
+  //   console.log("Saving Etsy data to MongoDB!");
+  //   this.returnEtsyListings()
+  // };
+
+  saveEtsyListing = results => {
+    console.log("Saving Etsy listing");
+    console.log(results);
+    // console.log(results[0].title);
+    // var listing = results;
+    //         for (var i=0; i < listing.length; i++) {
+    //             listing[i].channel = "etsy";
+    //         }
+    //         console.log(listing[0].channel);
+    console.log(this.state.results[0].title);
+    for (var i=0; i < this.state.results.length; i++) {
+        results[i].channel = "Etsy";
+    }
+    console.log(results[0].channel);
+    API.saveListing(results)
+      .then(res => {
+        // this.setState({
+        //   listings: results
+        // });
+        console.log("Saved!");
+      })
+      .catch(err => console.log(err));
+  };
+
+  returnEtsyListings() {
+    let term = "SilverandGoldGallery"; // need to put in env
+    let api_key = "xv3l1bj1g4cwg1ihrprejjce"; // need to put in env
+    jsonp("https://openapi.etsy.com/v2/shops/" + term + "/listings/active.js?callback=getData&limit=10&includes=Images:1&api_key=" + api_key, null, (err, data) => {
+      console.log("Waiting for Etsy API callback...");
+      if (err) {
+        console.error(err.message);
+      }
+      else {
+        console.log("data is", data);
+        this.setState({
+          results: data.results
+        })
+        console.log("state is", this.state)
+        this.saveEtsyListing(this.state.results);
+        // console.log(this.state.results[0].title);
+        // for (var i=0; i < this.state.results.length; i++) {
+        //     this.state.results[i].channel = "etsy";
+        // }
+        // console.log(this.state.results[0].channel);
+      }
+      // this.handleEtsySave();
+    });
+  }
+
+  // handleFormSubmit = event => {
+  //   event.preventDefault();
+  //   console.log("Form submitted!");
+  //   // if (this.state.search) {
+  //   // API.searchItems(this.state.search)
+  //   API.searchItems()
+  //   // .then(res => {
+  //   // console.log(res.data);
+  //   // this.setState({ results: res.data.items })
+  //   // this.loadBooks()
+  //   // console.log(this.state.results);
+  //   // console.log(this.state.results[0].id);
+  //   // })
+  //   // .catch(err => console.log(err))
+  //   // })
+  //   // }
+  // };
 
   render() {
    
@@ -129,26 +171,31 @@ class Inventory extends Component {
             </Col>
             <Col size="md-10">
               <Jumbotron>
-                <h1>Inventory</h1>
-                <div>Summary table of inventory and search for items</div>
+                <h2>Products Currently For Sale</h2>
+                {/* <div>Summary table of inventory and search for items</div> */}
                 {/* <h1>{data.results[0].title}</h1> */}
               </Jumbotron>
 
               {/* <Wrapper> */}
               <div>
-                <form>
-                  <h2>Item Search</h2>
-                  <Input
+                <form style={{float: 'left', marginRight: "5px"}}>
+                  {/* <h2>Item Search</h2> */}
+                  {/* <Input
                     value={this.state.search}
                     onChange={this.handleInputChange}
                     name="search"
                     placeholder="Silver ring (required)"
-                  />
+                  /> */}
                   <FormBtn
-                    disabled={!this.state.search}
-                    onClick={this.handleFormSubmit}
-                  >
-                    Search
+                    // disabled={!this.state.search}
+                    // onClick={this.handleFormSubmit}
+                    onClick={this.handleEtsySearch}>
+                    Etsy API Call
+                </FormBtn>
+                </form>
+                <form>
+                  <FormBtn onClick={this.handleEbaySearch}>
+                    Ebay API Call
                 </FormBtn>
                 </form>
               </div>
@@ -156,80 +203,35 @@ class Inventory extends Component {
 
 
               {/* <Wrapper> */}
-              <div>
+              {/* <Wrapper> */}
+              {/* <div> */}
                 {this.state.results.length ? (
-                  <List>
+                  // <List>
+                  <DisplayContainer>
                     {this.state.results.map(item => {
                       return (
-                        <ListItem key={item.id}>
-                          {/* <a rel="noreferrer noopener" target="_blank" href={item.volumeInfo.infoLink}> */}
-                          
-                            {/* <strong style={{ fontSize: "24px" }}> */}
-                              {/* {item.volumeInfo.title} */}
-                              {/* {item.title}
-                              {item.description} */}
-                              <ul>
-                                <img src={item.Images[0].url_170x135} alt="item"/>
-                                <li><a rel="noreferrer noopener" target="_blank" href={item.url}>{item.title}</a></li>
-                                {/* <li>{item.description}</li> */}
-                                <li>${item.price}</li>
-                                <li>Quantity: {item.quantity}</li>
-                                <li>Listing ID: {item.listing_id}</li>
-                                <li>SKU: {item.sku}</li>
-                                
-                                <li>Views: {item.views}</li>
-                              </ul>
-
-                            {/* </strong> */}
-                          {/* </a> */}
-
-                          
-
-
-
-
-                          <br />
-                          {/* by {(item.volumeInfo.authors).join(", ")} */}
-                          {/* {const submitDisabled = this.state.search !== this.state.search} */}
-                          {/* <button disabled={submitDisabled}>hello</button> */}
-                          {/* <button {disabled}>Test-button</button> */}
-                          <SaveBtn
-                            // {window.location.pathname === "/" ? "disabled: true" : " "}
-                            // disabled = "true"
-                            onClick={() => {
-                              this.saveItem({
-                                title: item.volumeInfo.title,
-                                authors: (item.volumeInfo.authors).join(", "),
-                                description: item.volumeInfo.description,
-                                thumbnail: item.volumeInfo.imageLinks.thumbnail,
-                                link: item.volumeInfo.infoLink,
-                                previewLink: item.volumeInfo.previewLink,
-                                _id: item.id
-                              }
-                              )
-                            }}
-                          // onChange={this.state.disabled= true}
-                          />
-                          <a rel="noreferrer noopener" target="_blank" href={item.url}>
-                            <ViewBtn /></a>
-                          
-                          <Row>
-                            <Col size="xs-1 sm-1">
-                              {/* <Thumbnail src={item.volumeInfo.imageLinks.thumbnail} /> */}
-                            </Col>
-                            <Col size="xs-11 sm-11">
-                              {/* {item.volumeInfo.description} */}
-                            </Col>
-                          </Row>
-                        </ListItem>
+                        // <ListItem key={item.id}>
+                        <ProductCard 
+                          image={item.Images[0].url_170x135}
+                          title={item.title}
+                          price={item.price}
+                          quantity={item.quantity}
+                          listing_id={item.listing_id}
+                          sku={item.sku}
+                          views={item.views}
+                          url={item.url}
+                          description={item.description} 
+                          state={item.state}/>
                       );
                     }
                     )}
-                  </List>
+                    </DisplayContainer>
+                  // </List>
                 ) : (
                     <h3>No Results to Display</h3>
                   )}
-              </div>
+              {/* </div> */}
+              {/* </Wrapper> */}
               {/* </Wrapper> */}
 
             </Col>
@@ -244,7 +246,7 @@ class Inventory extends Component {
 
 }
 
-export default Inventory;
+export default ProductDetail;
 
 
 
