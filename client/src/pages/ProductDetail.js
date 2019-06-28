@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
 import DisplayContainer from "../components/DisplayContainer";
 // import Wrapper from "../components/Wrapper";
+import Nav from "../components/Nav";
 import NavSide from "../components/NavSide";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
@@ -28,28 +29,29 @@ class ProductDetail extends Component {
 
   componentDidMount() {
     // this.returnEtsyListings();
+    // this.loadListings();
   }
 
-  // loadBooks = () => {
-  //   API.getBooks()
+  // loadListings = () => {
+  //   API.getListings()
   //     .then(res =>
-  //       this.setState({ books: res.data, title: "", authors: "", description: "" })
+  //       this.setState({ listings: res.data, title: "", price: "", quantity: "" })
   //     )
   //     .catch(err => console.log(err));
   // };
 
-  saveItem = item => {
-    // console.log("Saving book");
-    // console.log(book);
-    alert(item.title + " saved!");
-    API.saveItem(item)
-      .then(res => {
-        this.setState({
-          items: item
-        });
-      })
-      .catch(err => console.log(err));
-  };
+  // saveItem = item => {
+  //   // console.log("Saving book");
+  //   // console.log(book);
+  //   alert(item.title + " saved!");
+  //   API.saveItem(item)
+  //     .then(res => {
+  //       this.setState({
+  //         items: item
+  //       });
+  //     })
+  //     .catch(err => console.log(err));
+  // };
 
   // deleteBook = id => {
   //   API.deleteBook(id)
@@ -94,6 +96,9 @@ class ProductDetail extends Component {
         //   listings: results
         // });
         console.log("Saved!");
+        console.log(res);
+        console.log(res.config.data);
+        console.log(res.data);
       })
       .catch(err => console.log(err));
   };
@@ -101,7 +106,7 @@ class ProductDetail extends Component {
   returnEtsyListings() {
     let term = "SilverandGoldGallery"; // need to put in env
     let api_key = "xv3l1bj1g4cwg1ihrprejjce"; // need to put in env
-    jsonp("https://openapi.etsy.com/v2/shops/" + term + "/listings/active.js?callback=getData&limit=10&includes=Images:1&api_key=" + api_key, null, (err, data) => {
+    jsonp("https://openapi.etsy.com/v2/shops/" + term + "/listings/active.js?callback=getData&limit=20&includes=Images:1&api_key=" + api_key, null, (err, data) => {
       console.log("Waiting for Etsy API callback...");
       if (err) {
         console.error(err.message);
@@ -162,6 +167,8 @@ class ProductDetail extends Component {
     return (
       <div className="container1">
         {/* <Container fluid> */}
+        <Nav>
+        </Nav>
 
         <Col size="md-12 sm-12">
           <div className="row">
@@ -217,11 +224,12 @@ class ProductDetail extends Component {
                           price={item.price}
                           quantity={item.quantity}
                           listing_id={item.listing_id}
-                          sku={item.sku}
+                          sku={item.sku[0]}
                           views={item.views}
                           url={item.url}
                           description={item.description} 
-                          state={item.state}/>
+                          state={item.state}
+                          channel={item.channel}/>
                       );
                     }
                     )}
