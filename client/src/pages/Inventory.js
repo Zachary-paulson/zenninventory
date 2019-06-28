@@ -3,6 +3,7 @@ import SaveBtn from "../components/SaveBtn";
 import ViewBtn from "../components/ViewBtn";
 import Jumbotron from "../components/Jumbotron";
 // import Wrapper from "../components/Wrapper";
+import Nav from "../components/Nav";
 import NavSide from "../components/NavSide";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
@@ -119,6 +120,8 @@ class Inventory extends Component {
 
     return (
       <div className="container1">
+        <Nav>
+        </Nav>
         {/* <Container fluid> */}
 
         <Col size="md-12 sm-12">
