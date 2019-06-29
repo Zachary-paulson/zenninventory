@@ -14,8 +14,6 @@ import { Col } from "../components/Grid";
 // import { List } from "../components/List";
 import ProductCard from "../components/ProductCard";
 // import { FormBtn } from "../components/Form";
-import {Bar} from 'react-chartjs-2';
-< Bar data={...} />
 
 class Dashboard extends Component {
   state = {
@@ -144,22 +142,8 @@ class Dashboard extends Component {
 render() {
 
 
-  const data = (canvas) => {
-    const ctx = canvas.getContext("2d")
-    const gradient = ctx.createLinearGradient(0,0,100,0);
-    ...
-    return {
-      ...
-      backgroundColor: gradient
-      ...
-    }
-  }
- 
-  return (<Line data={data} />)
 
-
-
-
+  
   return (
     <div className="container1">
       <Nav>
