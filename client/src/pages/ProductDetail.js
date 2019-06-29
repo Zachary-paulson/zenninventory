@@ -65,10 +65,10 @@ class ProductDetail extends Component {
     API.saveListing(results)
       .then(res => {
         console.log("Saved in Mongo!");
+
       })
       .catch(err => console.log(err));
   };
-
 
   render() {
     return (

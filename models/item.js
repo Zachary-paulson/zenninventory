@@ -16,5 +16,6 @@ const itemSchema = new Schema({
 });
 
 const Item = mongoose.model("Item", itemSchema);
+// const items = mongoose.model("items", itemSchema);
 
 module.exports = Item;

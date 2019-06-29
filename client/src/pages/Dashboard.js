@@ -36,7 +36,6 @@ class Dashboard extends Component {
   };
 
 
-
   // loadGraphs = () => {
   //   function Chart() {
   //     this.type= "";
@@ -140,7 +139,6 @@ class Dashboard extends Component {
 
 
 
-
 render() {
 
 
@@ -162,6 +160,7 @@ render() {
 
   return (
     <div className="container1">
+
       <Nav>
       </Nav>
 
@@ -174,6 +173,7 @@ render() {
           <Col size="md-10">
             <Jumbotron>
               <h2>Summary of Sales and Inventory</h2>
+
             </Jumbotron>
 
 
