@@ -7,13 +7,13 @@ import ProductDetail from "./pages/ProductDetail";
 import Channels from "./pages/Channels";
 import Support from "./pages/Support";
 import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
+
 
 function App() {
   return (
     <Router>
       <div>
-        <Nav />
+
         <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/dashboard" component={Dashboard} />
