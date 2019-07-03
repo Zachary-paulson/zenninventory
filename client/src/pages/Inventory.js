@@ -3,6 +3,7 @@ import SaveBtn from "../components/SaveBtn";
 import ViewBtn from "../components/ViewBtn";
 import Jumbotron from "../components/Jumbotron";
 // import Wrapper from "../components/Wrapper";
+import Nav from "../components/Nav";
 import NavSide from "../components/NavSide";
 import API from "../utils/API";
 // import { Link } from "react-router-dom";
@@ -101,24 +102,10 @@ class Inventory extends Component {
 
   render() {
    
-    const items = this.state.results.map((product) => {
-      // return (<List title={product.title} image={product.Images[0].url_75x75} price={product.price} key={product.listing_id} id={product.listing_id} />)
-      return (<List
-      // price={product.price}
-      // quantity={product.quantity}
-      // title={product.title}
-      // description={product.description}
-      // listing_id={product.listing_id}
-      // sku={product.sku}
-      // url={product.url}
-      // views={product.views}
-      // images={product.Images[0].url_fullxfull}
-      />)
-    })
-
-
     return (
       <div className="container1">
+        <Nav>
+        </Nav>
         {/* <Container fluid> */}
 
         <Col size="md-12 sm-12">

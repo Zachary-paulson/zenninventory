@@ -6,10 +6,6 @@ router.route("/")
   .get(itemsController.findAll)
   .post(itemsController.create);
 
-router.route("/api/listing")
-  .get(itemsController.findAll)
-  .post(itemsController.create);
-
 // Matches with "/api/items/:id"
 router
   .route("/:id")

@@ -13,7 +13,7 @@ app.use(express.json());
 //   // allow origin
 //   // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000/inventory');
 //   res.setHeader('Access-Control-Allow-Origin', '*');
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELET');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE');
 //   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 //   next();
 // });

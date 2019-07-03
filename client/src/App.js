@@ -9,12 +9,12 @@ import Support from "./pages/Support";
 import NoMatch from "./pages/NoMatch";
 
 
+
 function App() {
   return (
     <Router>
       <div>
 
-        <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/inventory" component={Inventory} />

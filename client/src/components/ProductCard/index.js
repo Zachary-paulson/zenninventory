@@ -1,14 +1,12 @@
 import React from "react";
 import "./style.css";
-// import rescuebots from './images/blades2.png';
-
-// const images = require.context('./images', true);
+// const logoImages = require.context('../assets/images/logos', true);
 
 function ProductCard(props) {
-  // let rescuebots = images('./blades1.png');
-  // let rescuebots = images(`./${props.image}.png`);
+  // 
+  // let channelLogo = logoImages(`./${props.channel}.png`);
   // console.log(props.name);
-  // console.log(`${props.image}.png`);
+  console.log();
 
   return (
     <div className="card">
@@ -28,6 +26,8 @@ function ProductCard(props) {
           <li>Views: {props.views}</li>
           <li>State: {props.state}</li>
           <li>Channel: {props.channel}</li>
+          {/* <li><img src='channelLogo' /></li> */}
+          {/* <li>Logo: <img src={props.channelLogo} alt="logo" /></li> */}
         </ul>
       </div>
       
