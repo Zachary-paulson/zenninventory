@@ -41,3 +41,13 @@
 .nav-link active {
   background: green;
 }
+
+.col-md-2 {
+  background-color: #3a3a3a;
+}
+
+.makeFixed{
+  position: fixed;
+  /* left: 0px; */
+  /* top: 200px; */
+}
