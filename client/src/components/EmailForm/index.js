@@ -36,33 +36,29 @@ class EmailForm extends Component {
     return (
 
       <div>
-        <body className="text-center">
-        <form className="eMail-form form-signin">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-          
+        <p>
+          Hello {this.state.eMail} 
+        </p>
+        <form className="form">
           <input
             value={this.state.eMail}
             name="eMail"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="EMail"
+            placeholder="eMail"
           />
             <input
             value={this.state.password}
             name="password"
             onChange={this.handleInputChange}
             type="password"
-            placeholder="Password"
+            placeholder="pass word"
           />
-          <button className="submitButton" onClick={this.handleFormSubmit}>Submit</button>
-        
-
+          <button onClick={this.handleFormSubmit}>Submit</button>
         </form>
-        </body>
       </div>
     );
   }
 }
 
 export default EmailForm;
-

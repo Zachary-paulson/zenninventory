@@ -1,10 +1,8 @@
 .login {
     background-color: lightgray;
-    /* float: right; */
-    width: 100%;
     
 }
 
-.row {
-    margin: 0;
+.col-6 {
+    float: left;
 }
