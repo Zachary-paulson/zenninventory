@@ -35,11 +35,11 @@ class EmailForm extends Component {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
 
-      <div>
-        <body className="text-center">
+      <div className="text-center">
+      {/* <body className="text-center"> */}
         <form className="eMail-form form-signin">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-          
+          <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+
           <input
             value={this.state.eMail}
             name="eMail"
@@ -47,7 +47,7 @@ class EmailForm extends Component {
             type="text"
             placeholder="EMail"
           />
-            <input
+          <input
             value={this.state.password}
             name="password"
             onChange={this.handleInputChange}
@@ -55,10 +55,10 @@ class EmailForm extends Component {
             placeholder="Password"
           />
           <button className="submitButton" onClick={this.handleFormSubmit}>Submit</button>
-        
+
 
         </form>
-        </body>
+      {/* </body> */}
       </div>
     );
   }

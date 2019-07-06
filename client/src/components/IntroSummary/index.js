@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from "../assets/images/Summarybg.png";
-import logo2 from "../assets/images/ZENN.logo.white.png";
+// import logo2 from "../assets/images/ZENN.logo.white.png";
 import "./style.css";
 
 

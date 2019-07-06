@@ -18,7 +18,7 @@ render() {
 
 
     <div className="row">
-        <div className="col-6 split-srcreen-col align-items-center summary">    
+        <div className="col-6 split-screen-col align-items-center summary">    
         <IntroSummary>
 
         </IntroSummary> 
@@ -27,7 +27,7 @@ render() {
       
 
    
-        <div className="col-6 split-srcreen-col align-items-center login">    
+        <div className="col-6 split-screen-col align-items-center login">    
         <LogIn>
             <EmailForm>
               <GoogleLogin>
