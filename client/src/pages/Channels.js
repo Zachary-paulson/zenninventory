@@ -9,6 +9,7 @@ import API from "../utils/API";
 // import { Link } from "react-router-dom";
 import { Col } from "../components/Grid";
 // import { List, ListItem } from "../components/List";
+import StoreFrontCard from '../components/StoreFrontCard';
 
 class Channels extends Component {
   state = {
@@ -36,7 +37,7 @@ class Channels extends Component {
   render() {
     return (
       <div>
-      {/* <Container fluid> */}
+        {/* <Container fluid> */}
         <Nav>
         </Nav>
         <Col size="md-12 sm-12">
@@ -50,13 +51,10 @@ class Channels extends Component {
                 <h1>Storefront Channels</h1>
                 <div>Set up Amazon/Etsy/Ebay/etc</div>
               </Jumbotron>
-              
+
               <div className="row">
                 <Col size="md-12 sm-12">
-                  <Summary>
-                    <h1>Amazon</h1>
-                    <div>Account Info</div>
-                  </Summary>
+                  <StoreFrontCard/>
 
                 </Col>
               </div>
