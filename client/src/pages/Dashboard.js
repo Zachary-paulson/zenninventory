@@ -10,10 +10,17 @@ import { Col } from "../components/Grid";
 import { FormBtn, ClearBtn } from "../components/Form";
 import jsonp from 'jsonp';
 import Summary from "../components/Summary";
+import TotalValueInventory from "../components/TotalValueInventory";
+// import TopStockedList from "../components/TopStockedList";
+// import TopStockedItem from "../components/TopStockedItem";
+import TotalStockItems from "../components/TotalStockItems";
+import TopStockedList from "../components/TopStockedList";
+import TopStockedItem from "../components/TopStockedItem";
 import TotalViewsChannel from "../components/TotalViewsChannel";
 import TopViewedList from "../components/TopViewedList";
 import TopViewedItem from "../components/TopViewedItem";
 import './DashboardStyle.css';
+import AveragePriceListing from "../components/AveragePriceListing";
 
 // const myelement = <h1>React is {5 + 5} times better with JSX</h1>;
 
@@ -272,6 +279,30 @@ class Dashboard extends Component {
 
                 <div className="row">
                   <div className="col-lg-3">
+                    <TotalValueInventory props={this.state.results} />
+                  </div>
+                  <div className="col-lg-3">
+                    <AveragePriceListing props={this.state.results} />
+                  </div>
+                  <div className="col-lg-auto">
+                    {/* <TopStockedList props={this.state.results} /> */}
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-lg-3">
+                    <TotalStockItems props={this.state.results} />
+                  </div>
+                  <div className="col-lg-3">
+                    <TopStockedItem props={this.state} />
+                  </div>
+                  <div className="col-lg-auto">
+                    <TopStockedList props={this.state.results} />
+                  </div>
+                </div>
+                
+                <div className="row">
+                  <div className="col-lg-3">
                     <TotalViewsChannel props={this.state.results} />
                   </div>
                   <div className="col-lg-3">
@@ -279,18 +310,6 @@ class Dashboard extends Component {
                   </div>
                   <div className="col-lg-auto">
                     <TopViewedList props={this.state.results} />
-                  </div>
-                </div>
-
-                <div className="row">
-                  <div className="col-lg-3">
-                    {/* <TotalViewsChannel props={this.state.results} /> */}
-                  </div>
-                  <div className="col-lg-3">
-                    {/* <TopViewedItem props={this.state.results} /> */}
-                  </div>
-                  <div className="col-lg-auto">
-                    {/* <TopViewedList props={this.state.results} /> */}
                   </div>
                 </div>
 

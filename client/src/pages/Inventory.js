@@ -132,7 +132,7 @@ class Inventory extends Component {
                         <AgGridColumn field="views" width={105} headerName="Views" filter="text" sortable resizable cellRendererFramework={ProficiencyCellRenderer}></AgGridColumn>
                         <AgGridColumn field="etsy_quantity" width={125} headerName="Etsy Quantity" filter="text" sortable resizable></AgGridColumn>
                         <AgGridColumn field="ebay_quantity" width={125} headerName="Ebay Quantity" filter="text" sortable resizable></AgGridColumn>
-                        <AgGridColumn field="price" width={85} headerName="Price" filter="text" sortable resizable></AgGridColumn>
+                        <AgGridColumn field="price" width={85} headerName="$ Price" filter="text" sortable resizable></AgGridColumn>
                         <AgGridColumn field="url" width={210} headerName="URL" editable resizable
                           cellRenderer={Inventory.urlCellRenderer}
                           filter="set" sortable filterParams={{ cellRenderer: Inventory.urlCellRenderer, cellHeight: 20 }}>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "./style.css";
 import EmailForm from "../EmailForm";
 import GoogleLogin from "../GoogleLogin";
-import landing2 from "../assets/images/landing2.png";
+// import landing2 from "../assets/images/landing2.png";
 
 
 class LogIn extends Component {
