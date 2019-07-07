@@ -19,33 +19,27 @@ class Channels extends Component {
     store: [
       {
         name: 'Amazon'
-      },
-      {
+      }, {
         name: 'Ebay'
-      },
-      {
+      }, {
         name: 'Etsy'
-      },
+      }
     ]
   };
 
   render() {
     return (<div>
       {/* <Container fluid> */}
-      <Nav />
+      <Nav/>
       <Col size="md-12 sm-12">
         <div className="row">
           <Col size="md-2">
-            <NavSide />
+            <NavSide/>
           </Col>
           <Col size="md-10">
             <div className="row">
               <Col size="md-12 sm-12">
-                {this.props.store.map((store) => (
-                  <StoreFrontCard storeFront={store.name}/>
-                ))}
-
-
+                {this.props.store.map((store) => (<StoreFrontCard storeFront={store.name}/>))}
               </Col>
             </div>
           </Col>
