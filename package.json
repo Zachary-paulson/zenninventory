@@ -20,6 +20,8 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+    "ag-grid-community": "^21.0.1",
+    "ag-grid-react": "^21.0.1",
     "axios": "^0.18.0",
     "chart.js": "^2.8.0",
     "dotenv": "^8.0.0",
@@ -27,6 +29,7 @@
     "if-env": "^1.0.4",
     "jsonp": "^0.2.1",
     "mongoose": "^5.3.16",
+    "react-bootstrap-carousel": "^3.4.1",
     "passport": "^0.4.0",
     "passport-ebay": "^1.0.1-beta",
     "passport-oauth2": "^1.5.0",
