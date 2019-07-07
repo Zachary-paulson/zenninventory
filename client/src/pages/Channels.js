@@ -1,20 +1,18 @@
 import React, {Component} from "react";
 // import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from "../components/Jumbotron";
 // import Wrapper from "../components/Wrapper";
 import Nav from "../components/Nav";
 import NavSide from "../components/NavSide";
-import API from "../utils/API";
 // import { Link } from "react-router-dom";
 import {Col} from "../components/Grid";
 // import { List, ListItem } from "../components/List";
 import StoreFrontCard from '../components/StoreFrontCard';
 
 class Channels extends Component {
-  constructor(props) {
-    super(props);
-
-  }
+  // constructor(props) {
+  //   super(props);
+  //
+  // }
   static defaultProps = {
     store: [
       {

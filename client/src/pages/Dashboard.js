@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 // import React, { useState, useEffect } from "react";
 import Jumbotron from "../components/Jumbotron";
-import DisplayContainer from "../components/DisplayContainer";
+// import DisplayContainer from "../components/DisplayContainer";
 import Nav from "../components/Nav";
 import NavSide from "../components/NavSide";
 import API from "../utils/API";
 import { Col } from "../components/Grid";
-import ProductCard from "../components/ProductCard";
+// import ProductCard from "../components/ProductCard";
 import { FormBtn, ClearBtn } from "../components/Form";
 import jsonp from 'jsonp';
 import Summary from "../components/Summary";
@@ -30,7 +30,7 @@ import './DashboardStyle.css';
 // }
 
 // function TopViewList({ items }) {
-  
+
 //   return (
 //     <ol>
 //       <h5>Top Viewed Products</h5>
@@ -179,14 +179,14 @@ class Dashboard extends Component {
                   </FormBtn>
                 </form>
                 <form style={{ float: 'left', marginRight: "5px" }}>
-                  <FormBtn 
+                  <FormBtn
                   onClick={this.handleEbaySearch}>
                   {/* onClick={handleEbaySearch}> */}
                     Manual Ebay API Call
                   </FormBtn>
                 </form>
                 <form>
-                  <ClearBtn 
+                  <ClearBtn
                   onClick={this.clearDatabase}>
                   {/* onClick={clearDatabase}> */}
                     Clear Database
@@ -457,9 +457,9 @@ export default Dashboard;
 //     //   options: {
 //     //     // scales:
 //     //     // {
-//     //     // yAxes: [{ticks: {beginAtZero: true, callback: function(value, index, values) {return '$' + value;}}, 
+//     //     // yAxes: [{ticks: {beginAtZero: true, callback: function(value, index, values) {return '$' + value;}},
 //     //     //         scaleLabel: {display: true, labelString: 'Y-axis Title'}}],
-//     //     // xAxes: [{ticks: {beginAtZero: true}, 
+//     //     // xAxes: [{ticks: {beginAtZero: true},
 //     //     //         scaleLabel: {display: true, labelString: 'X-axis Title', fontSize: 16, fontColor: 'green'}}]
 //     //     // },
 
