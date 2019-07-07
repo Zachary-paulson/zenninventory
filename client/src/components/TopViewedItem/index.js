@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+const loadingImage = require.context('../assets/images', true);
 // const logoImages = require.context('../assets/images/logos', true);
 
 function topViewsFirst(props) {
@@ -16,29 +17,28 @@ function topViewsFirst(props) {
 
 function TopViewedItem({ props }) {
   // 
+  let processing = loadingImage(`./loading3.gif`);
   // let channelLogo = logoImages(`./${props.channel}.png`);
   // console.log(props.name);
   // console.log();
 
   return (
     <div className="viewTopCard">
-      {/* <ol> */}
+      
         <h5>Top Viewed Item</h5>
-        
-        {topViewsFirst(props).slice(0, 1).map(props => (
-          
-          // <li key={props._id}>
-          //   <div className="row">
-          //     <div className="col">
-          //       {props.title.replace("&#39;","'")}
-          //     </div>
-          //     <div className="col-3">
-          //       {props.views} views
-          //     </div>
-          //   </div>
-          // </li>
+       
 
-          // <div className="card">
+        {props.isloading ? (
+              <div>
+                {/* // alert("Is loading"), */}
+                <img alt="processing" src={processing} id="processingImage"/>
+                <h5 id="loadingMessage">Loading, please wait!</h5>
+              </div>
+                
+              ) : (
+          
+        topViewsFirst(props.results).slice(0, 1).map(props => (
+          
           <div className="img-container" key={props._id}>
             <img alt={props.sku} src={props.image} />
           {/* </div> */}
@@ -61,12 +61,10 @@ function TopViewedItem({ props }) {
           </div>
       
         </div>
-
-
+        )
           
         ))}
         
-      {/* </ol> */}
     </div>
   );
 

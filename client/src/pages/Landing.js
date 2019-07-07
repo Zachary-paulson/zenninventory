@@ -5,17 +5,12 @@ import EmailForm from "../components/EmailForm";
 import GoogleLogin from "../components/GoogleLogin";
 import Carousel from "../components/Carousel";
 
-
-
-
 class Landing extends Component {
 
 render() {
     return (
 
-     
   <div className="landingpage">
-
 
 
     <div className="row">
@@ -40,11 +35,9 @@ render() {
         </div>
     </div>  
 
-    </div>
+  </div>
 
 
-
-    
     );
   }
 }

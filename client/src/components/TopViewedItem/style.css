@@ -64,3 +64,19 @@
 .viewTopCard > h5{
   text-align: center;
 }
+
+#processingImage{
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+#loadingMessage{
+  text-align: center;
+  /* color: red; */
+  background: -webkit-linear-gradient(right, green, blue, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
