@@ -8,7 +8,7 @@ import { Col } from "../components/Grid";
 import ProductCard from "../components/ProductCard";
 // import { FormBtn } from "../components/Form";
 // import jsonp from 'jsonp';
-import "./ProductDetail.css";
+import "./ProductDetails.css";
 
 class ProductDetail extends Component {
   state = {
@@ -107,7 +107,7 @@ class ProductDetail extends Component {
                       return (
                         <ProductCard 
                           image={item.image}
-                          title={item.title}
+                          title={item.title.replace("&#39;","'")}
                           price={item.price}
                           quantity={item.quantity}
                           listing_id={item.listing_id}
@@ -115,7 +115,7 @@ class ProductDetail extends Component {
                           key={item.listing_id}
                           views={item.views}
                           url={item.url}
-                          description={item.description} 
+                          description={item.description.replace("&#39;","'")} 
                           state={item.state}
                           channel={item.channel}/>
                       );
