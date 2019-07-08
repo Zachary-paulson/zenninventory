@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const passport = require("../../server/config/passportEbay");
+const passport = require('passport');
+// const passportEbay = require("../../server/config/passportEbay");
+// const passportGoogle = require("../../server/config/passportGoogle");
 
 router.get("/ebay", passport.authenticate("ebay"));
 
@@ -14,5 +16,14 @@ router.get(
     res.redirect("/channels");
   }
 );
+
+router.get(
+  "/google",
+  passport.authenticate("google", { scope: ["profile"] })
+);
+
+router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
+  res.redirect("/profile");
+});
 
 module.exports = router;

@@ -4,10 +4,11 @@ const mongoose = require("mongoose");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const passport = require('passport');
-const passportSetup = require('./server/config/passportEbay');
+const passportEbaySetup = require('./server/config/passportEbay');
+const passportGoogleSetup = require('./server/config/passportGoogle');
 
 const apiRoutes = require('./routes/api/index');
-const ebayAuth = require('./routes/passport/authEbay');
+const authRoutes = require('./routes/passport/authRoutes');
 
 
 // Define middleware here
@@ -34,7 +35,7 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 //app.use(routes);
 app.use('/api', apiRoutes);
-app.use('/auth', ebayAuth);
+app.use('/auth', authRoutes);
 
 
 
