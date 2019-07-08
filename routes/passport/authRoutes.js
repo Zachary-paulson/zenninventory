@@ -22,8 +22,8 @@ router.get(
   passport.authenticate("google", { scope: ["profile"] })
 );
 
-router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
-  res.redirect("/profile");
+router.get("/google/redirect", (req, res) => {
+  res.redirect("http://localhost:3000/dashboard");
 });
 
 module.exports = router;
