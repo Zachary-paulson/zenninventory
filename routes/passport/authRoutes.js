@@ -26,4 +26,13 @@ router.get("/google/redirect", (req, res) => {
   res.redirect("http://localhost:3000/dashboard");
 });
 
+router.get('/etsy', passport.authenticate('etsy', {
+  scope: ['profile_r', 'email_r', 'listings_r', 'profile_w']
+}));
+router.get('/etsy/callback', passport.authenticate('etsy', {
+  failureRedirect: 'http://localhost:3000/dashboard',
+  successRedirect: 'http://localhost:3000/channels'
+  })
+);
+
 module.exports = router;
