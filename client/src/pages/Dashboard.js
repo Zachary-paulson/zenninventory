@@ -130,7 +130,7 @@ class Dashboard extends Component {
         else {
 
           this.setState({ results: this.finalResult, isloading: false});
-          
+
         }
       }
 
@@ -263,13 +263,13 @@ class Dashboard extends Component {
 
                 {/* <h1>My name is {this.state.results[0].title}</h1> */}
                 {/* {this.state.results.map(item => {
-                      return (
-                        <SummaryCard
-                        title={item.title}
-                        />
-                      );
+                  return (
+                  <SummaryCard
+                  title={item.title}
+                  />
+                  );
                     }
-                    )} */}
+                )} */}
 
 
 
@@ -300,7 +300,7 @@ class Dashboard extends Component {
                     <TopStockedList props={this.state.results} />
                   </div>
                 </div>
-                
+
                 <div className="row">
                   <div className="col-lg-3">
                     <TotalViewsChannel props={this.state.results} />

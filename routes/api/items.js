@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const itemsController = require("../../controllers/itemsController");
+require('dotenv').config();
 
 // Matches with "/api/items"
 router.route("/")
@@ -13,5 +14,10 @@ router
   .get(itemsController.findById)
   .put(itemsController.update)
   .delete(itemsController.remove);
+
+router.route('/greetings').get((req, res) => {
+  res.setHeader("Content-Type", "application/json");
+  res.send(JSON.stringify({ greeting: `Hello world!` }));
+})
 
 module.exports = router;
