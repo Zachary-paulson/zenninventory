@@ -9,7 +9,7 @@ router.get("/ebay", passport.authenticate("ebay"));
 router.get(
   "/ebay/callback",
   passport.authenticate("ebay", {
-    failureRedirect: "http://localhost:3000/channels"
+    failureRedirect: "/channels"
   }),
   function(req, res) {
     // Successful authentication, redirect home.
@@ -23,15 +23,15 @@ router.get(
 );
 
 router.get("/google/redirect", (req, res) => {
-  res.redirect("http://localhost:3000/dashboard");
+  res.redirect("/dashboard");
 });
 
 router.get('/etsy', passport.authenticate('etsy', {
   scope: ['profile_r', 'email_r', 'listings_r', 'profile_w']
 }));
 router.get('/etsy/callback', passport.authenticate('etsy', {
-  failureRedirect: 'http://localhost:3000/channels',
-  successRedirect: 'http://localhost:3000/channels'
+  failureRedirect: '/channels',
+  successRedirect: '/channels'
   })
 );
 
