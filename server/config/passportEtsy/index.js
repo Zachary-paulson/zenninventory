@@ -8,6 +8,7 @@ passport.use(new EtsyStrategy({
   },
   function (token, tokenSecret, profile, done){
     console.log({etsyID: profile.id});
+    console.log({etsyID: profile.id});
     done();
   }
 ));
