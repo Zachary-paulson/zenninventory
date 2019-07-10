@@ -77,7 +77,7 @@ class ProductDetail extends Component {
         <Nav>
         </Nav>
 
-        <Col size="md-12 sm-12">
+        <Col size="md-12 sm-12" className="noPadding">
           <div className="row">
             <Col size="md-2">
               <NavSide>
@@ -108,8 +108,8 @@ class ProductDetail extends Component {
                         <ProductCard 
                           image={item.image}
                           title={item.title.replace("&#39;","'")}
-                          price={item.price}
-                          quantity={item.quantity}
+                          price={item.price.toFixed(2)}
+                          quantity={item.etsy_quantity+item.ebay_quantity}
                           listing_id={item.listing_id}
                           sku={item.sku}
                           key={item.listing_id}
