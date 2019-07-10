@@ -25,5 +25,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "prosy" : "http://localhost:3001"
+  "prosy": "http://localhost:3001"
 }

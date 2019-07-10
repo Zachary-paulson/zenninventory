@@ -30,7 +30,7 @@ router.get('/etsy', passport.authenticate('etsy', {
   scope: ['profile_r', 'email_r', 'listings_r', 'profile_w']
 }));
 router.get('/etsy/callback', passport.authenticate('etsy', {
-  failureRedirect: 'http://localhost:3000/dashboard',
+  failureRedirect: 'http://localhost:3000/channels',
   successRedirect: 'http://localhost:3000/channels'
   })
 );
