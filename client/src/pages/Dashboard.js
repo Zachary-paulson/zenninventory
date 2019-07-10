@@ -112,7 +112,7 @@ class Dashboard extends Component {
             etsy_quantity: value.quantity,
             listing_id: value.listing_id,
             sku: value.sku[0],
-            views: value.views,
+            etsy_views: value.views,
             url: value.url,
             description: value.description,
             state: value.state,
@@ -120,7 +120,7 @@ class Dashboard extends Component {
           }
           this.finalResult.push(callbackResult);
           this.saveEtsyListing([callbackResult]);
-
+          this.componentDidMount();
         }
 
 
@@ -193,6 +193,7 @@ class Dashboard extends Component {
     API.saveListing(results)
       .then(res => {
         console.log("Saved in Mongo!");
+        // this.componentDidMount();
       })
       .catch(err => console.log(err));
   };
