@@ -5,7 +5,8 @@ class GoogleLogin extends Component {
 
 
   render() {
-    let googleAuthRoute = `http://localhost:3001/auth/google`;
+
+    let googleAuthRoute = (process.env.NODE_ENV === 'production'? `/auth/google`: `http://localhost:3001http://localhost:3001/auth/google`);
     return (
 
 <div className="form-group">

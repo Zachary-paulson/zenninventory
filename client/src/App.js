@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
@@ -8,25 +8,40 @@ import Channels from "./pages/Channels";
 import Support from "./pages/Support";
 import NoMatch from "./pages/NoMatch";
 
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {}
+    this.connectToServer = this.connectToServer.bind(this);
+  }
+  connectToServer() {
+    fetch("localhost:3001/");
+  }
+  componentDidMount() {
+    this.connectToServer();
+  }
 
-
-function App() {
-  return (
-    <Router>
-      <div>
-       <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/inventory" component={Inventory} />
-          <Route exact path="/productdetails" component={ProductDetails} />
-          <Route exact path="/channels" component={Channels} />
-          <Route exact path="/support" component={Support} />
-          <Route component={NoMatch} />
-        </Switch>
-      </div>
-    </Router>
-  );
+  render() {
+    return (
+      <Router>
+        <div>
+          <Switch>
+            <Route exact="exact" path="/" component={Landing} />
+            <Route exact="exact" path="/dashboard" component={Dashboard} />
+            <Route exact="exact" path="/inventory" component={Inventory} />
+            <Route
+              exact="exact"
+              path="/productdetails"
+              component={ProductDetails}
+            />
+            <Route exact="exact" path="/channels" component={Channels} />
+            <Route exact="exact" path="/support" component={Support} />
+            <Route component={NoMatch} />
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
-

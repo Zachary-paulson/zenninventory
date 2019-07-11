@@ -9,6 +9,7 @@ const passportGoogleSetup = require('./server/config/passportGoogle');
 const passportEtsySetup = require('./server/config/passportEtsy');
 const expressSession = require('express-session');
 
+
 const apiRoutes = require('./routes/api/index');
 const authRoutes = require('./routes/passport/authRoutes');
 
@@ -53,4 +54,5 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/zenninventoryli
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+  console.log(process.env.NODE_ENV);
 });
