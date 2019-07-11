@@ -62,7 +62,7 @@ class Support extends Component {
 
                       <p>Email us directly at support@zenninventory.com or submit the form below:</p>
 
-
+                        
                         <section data-aos="fade-up" data-aos-offset="800" data-aos-easing="ease-in-sine" data-aos-anchor="#projects"
                           data-aos-anchor-placement="bottom-bottom">
                           <div style={{justifyContent: 'center', textAlign: 'left'}} class="row">
