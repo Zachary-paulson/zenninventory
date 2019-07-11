@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const itemsController = require("../../controllers/itemsController");
-require('dotenv').config();
 
 // Matches with "/api/items"
 router.route("/")

@@ -107,14 +107,14 @@ class Dashboard extends Component {
         for (let value of data.results) {
           let callbackResult = {
             image: value.Images[0].url_570xN,
-            title: value.title,
+            title: value.title.replace("&#39;","'").replace('&quot;','"').replace('&quot;','"'),
             price: value.price,
             etsy_quantity: value.quantity,
             listing_id: value.listing_id,
             sku: value.sku[0],
             etsy_views: value.views,
             url: value.url,
-            description: value.description,
+            description: value.description.replace("&#39;","'").replace('&quot;','"').replace('&quot;','"'),
             state: value.state,
             channel: "Etsy"
           }
@@ -130,7 +130,7 @@ class Dashboard extends Component {
         else {
 
           this.setState({ results: this.finalResult, isloading: false});
-
+          
         }
       }
 
@@ -264,13 +264,13 @@ class Dashboard extends Component {
 
                 {/* <h1>My name is {this.state.results[0].title}</h1> */}
                 {/* {this.state.results.map(item => {
-                  return (
-                  <SummaryCard
-                  title={item.title}
-                  />
-                  );
+                      return (
+                        <SummaryCard
+                        title={item.title}
+                        />
+                      );
                     }
-                )} */}
+                    )} */}
 
 
 
@@ -301,7 +301,7 @@ class Dashboard extends Component {
                     <TopStockedList props={this.state.results} />
                   </div>
                 </div>
-
+                
                 <div className="row">
                   <div className="col-lg-3">
                     <TotalViewsChannel props={this.state.results} />
