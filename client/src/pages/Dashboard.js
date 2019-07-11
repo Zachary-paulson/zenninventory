@@ -22,41 +22,6 @@ import TopViewedItem from "../components/TopViewedItem";
 import './DashboardStyle.css';
 import AveragePriceListing from "../components/AveragePriceListing";
 
-// const myelement = <h1>React is {5 + 5} times better with JSX</h1>;
-
-// function topViewsFirst(items) {
-//   return items.filter(item => item).sort((a, b) => {
-//     if (a.views < b.views) {
-//       return 1;
-//     } else if (a.views > b.views) {
-//       return -1;
-//     } else {
-//       return 0;
-//     }
-//   });
-// }
-
-// function TopViewList({ items }) {
-
-//   return (
-//     <ol>
-//       <h5>Top Viewed Products</h5>
-//       {topViewsFirst(items).slice(0, 5).map(item => (
-//         <li key={item.id}>
-//           {item.name} {item.views} views: {item.title}
-//         </li>
-//       ))}
-//     </ol>
-//   );
-// }
-
-// let items = [
-//   { id: 0, name: "Cup", views: 5, isNew: true },
-//   { id: 1, name: "Piano", views: 500, isNew: true },
-//   { id: 2, name: "T-Shirt", views: 10, isNew: true },
-//   { id: 3, name: "Rescue Bots", views: 7, isNew: true }
-// ];
-
 // function Dashboard() {
 class Dashboard extends Component {
   state = {
