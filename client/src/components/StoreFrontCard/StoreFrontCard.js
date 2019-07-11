@@ -8,7 +8,7 @@ class StoreFrontCard extends Component {
 
   render() {
     let storeIcon = `fab fa-${this.props.storeFront.toLocaleLowerCase()}`;
-    authRoute = `/auth/${this.props.storeFront}`;
+    let authRoute = `/auth/${this.props.storeFront}`;
 
     return (
       <div className="continer-fuild">
