@@ -13,7 +13,6 @@ const expressSession = require('express-session');
 const apiRoutes = require('./routes/api/index');
 const authRoutes = require('./routes/passport/authRoutes');
 
-
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
