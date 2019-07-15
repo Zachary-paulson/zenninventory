@@ -10,7 +10,6 @@ const passportGoogleSetup = require('./server/config/passportGoogle');
 const passportEtsySetup = require('./server/config/passportEtsy');
 const expressSession = require('express-session');
 
-
 const apiRoutes = require('./routes/api/index');
 const authRoutes = require('./routes/passport/authRoutes');
 
