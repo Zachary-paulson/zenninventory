@@ -22,6 +22,41 @@ import TopViewedItem from "../components/TopViewedItem";
 import './DashboardStyle.css';
 import AveragePriceListing from "../components/AveragePriceListing";
 
+// const myelement = <h1>React is {5 + 5} times better with JSX</h1>;
+
+// function topViewsFirst(items) {
+//   return items.filter(item => item).sort((a, b) => {
+//     if (a.views < b.views) {
+//       return 1;
+//     } else if (a.views > b.views) {
+//       return -1;
+//     } else {
+//       return 0;
+//     }
+//   });
+// }
+
+// function TopViewList({ items }) {
+
+//   return (
+//     <ol>
+//       <h5>Top Viewed Products</h5>
+//       {topViewsFirst(items).slice(0, 5).map(item => (
+//         <li key={item.id}>
+//           {item.name} {item.views} views: {item.title}
+//         </li>
+//       ))}
+//     </ol>
+//   );
+// }
+
+// let items = [
+//   { id: 0, name: "Cup", views: 5, isNew: true },
+//   { id: 1, name: "Piano", views: 500, isNew: true },
+//   { id: 2, name: "T-Shirt", views: 10, isNew: true },
+//   { id: 3, name: "Rescue Bots", views: 7, isNew: true }
+// ];
+
 // function Dashboard() {
 class Dashboard extends Component {
   state = {
@@ -72,14 +107,14 @@ class Dashboard extends Component {
         for (let value of data.results) {
           let callbackResult = {
             image: value.Images[0].url_570xN,
-            title: value.title.replace("&#39;","'").replace('&quot;','"').replace('&quot;','"'),
+            title: value.title,
             price: value.price,
             etsy_quantity: value.quantity,
             listing_id: value.listing_id,
             sku: value.sku[0],
             etsy_views: value.views,
             url: value.url,
-            description: value.description.replace("&#39;","'").replace('&quot;','"').replace('&quot;','"'),
+            description: value.description,
             state: value.state,
             channel: "Etsy"
           }
@@ -95,7 +130,7 @@ class Dashboard extends Component {
         else {
 
           this.setState({ results: this.finalResult, isloading: false});
-          
+
         }
       }
 
@@ -229,13 +264,13 @@ class Dashboard extends Component {
 
                 {/* <h1>My name is {this.state.results[0].title}</h1> */}
                 {/* {this.state.results.map(item => {
-                      return (
-                        <SummaryCard
-                        title={item.title}
-                        />
-                      );
+                  return (
+                  <SummaryCard
+                  title={item.title}
+                  />
+                  );
                     }
-                    )} */}
+                )} */}
 
 
 
@@ -266,7 +301,7 @@ class Dashboard extends Component {
                     <TopStockedList props={this.state.results} />
                   </div>
                 </div>
-                
+
                 <div className="row">
                   <div className="col-lg-3">
                     <TotalViewsChannel props={this.state.results} />

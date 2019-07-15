@@ -12,6 +12,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {}
+    this.connectToServer = this.connectToServer.bind(this);
+  }
+  connectToServer() {
+    //fetch("localhost:3001/");
+  }
+  componentDidMount() {
+    //this.connectToServer();
   }
 
   render() {

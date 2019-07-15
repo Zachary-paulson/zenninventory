@@ -34,7 +34,7 @@ function TopViewedList({ props }) {
                 <a rel="noreferrer noopener" target="_blank" href={props.url}>{props.title.replace("&#39;","'")}</a>
               </div>
               <div className="col-3">
-                <strong>{props.etsy_views}</strong> views
+                {props.etsy_views} views
               </div>
             </div>
           </li>

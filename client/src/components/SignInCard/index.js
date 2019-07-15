@@ -17,7 +17,7 @@ class SignInCard extends Component {
       [name]: value
     });
   };
-
+  
   handleFormSubmit = event => {
     event.preventDefault();
     // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
@@ -54,12 +54,12 @@ class SignInCard extends Component {
       //     </div>
       //   </div>
       // </>
-
+      
       <div className="col-sm-12" style={{border: "1px solid black", borderRadius: "5px", background: "white", boxShadow: "0 3px 6px #999, 0 3px 6px #999"}}>
         <div id="landing-logo">
-          <img src={logo} alt="zenn logo" style={{ display: "block", marginLeft: "auto", marginRight: "auto", width: "40%"}} />
+            <img src={logo} alt="zenn logo" style={{ display: "block", marginLeft: "auto", marginRight: "auto", width: "40%"}} />
         </div>
-
+        
         <div className="signinCard" id="signin">
           {/* <p>
             Hello {this.state.username}
@@ -85,39 +85,42 @@ class SignInCard extends Component {
             />
             <button onClick={this.handleFormSubmit} className="btn btn-success btn-block">Submit</button>
           </form>
-
-          {/* <form method="post" action="http://www.zenninventory.com/signin">
+            
+            {/* <form method="post" action="http://www.zenninventory.com/signin">
               <div className="form-group mt-3">
-            <label>Username
-            <input type="text" className="form-control" id="username" value="" placeholder=""/>
-            </label>
+                <label>Username
+                <input type="text" className="form-control" id="username" value="" placeholder=""/>
+                </label>
               </div>
               <div className="form-group">
-            <label>Password
-            <input type="password" className="form-control" id="password" value="" placeholder=""/>
-            </label>
+                <label>Password
+                <input type="password" className="form-control" id="password" value="" placeholder=""/>
+                </label>
               </div>
               <br/>
               <button type="submit" className="btn btn-success btn-block">Submit</button>
-          </form> */}
-          <br/>
+            </form> */}
+              <br/>
         </div>
 
         <div className="form-group">
-          {/* <a className="btn btn-warning btn-block my-1" href="/auth/google"> */}
-          <a className="btn btn-warning btn-block my-1" href="/auth/google">
+            <a className="btn btn-warning btn-block my-1" href="/auth/google">
                 <span> <i className="fab fa-google"></i> Sign in with Google</span>
             </a>
         </div>
       </div>
+      
 
 
 
-
-
+      
 
 
     );
   }
 }
 export default SignInCard;
+                  
+                  
+                  
+                  

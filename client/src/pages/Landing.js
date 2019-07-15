@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import IntroSummary from "../components/IntroSummary";
 // import LogIn from "../components/LogIn";
 // import EmailForm from "../components/EmailForm";
-//import GoogleLogin from "../components/GoogleLogin";
+// import GoogleLogin from "../components/GoogleLogin";
 // import Carousel from "../components/Carousel";
 import SignInCard from "../components/SignInCard";
 import landingimg1 from '../components/assets/images/landing2.png';
@@ -14,9 +14,9 @@ class Landing extends Component {
     render() {
         return (
 
-            <div className="landingpage"
+            <div className="landingpage" 
             style={{
-            // backgroundImage: `url(${background})`,
+            // backgroundImage: `url(${background})`, 
             backgroundAttachment: "fixed",
             backgroundPosition: "left",
             backgroundRepeat: "no-repeat",
@@ -55,7 +55,7 @@ class Landing extends Component {
                     </div>
                 </div>
 
-
+                
 
                 <div className="footer fixed-bottom col-12" style={{ textAlign: "center", margin: "50px 0 0 0", padding: 0, background: "white" }}>
                     <a className="links" href="https://www.zenninventory.com">© 2019 ZENN Inventory</a>
